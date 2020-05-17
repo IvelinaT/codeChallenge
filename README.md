@@ -42,7 +42,7 @@ curl -H "Content-Type: application/json" -d @tasks.json http://localhost:4000 | 
 
 
 # For array response 
-Can be tested via [Postman] (https://www.postman.com/)
+Can be tested via [Postman](https://www.postman.com/)
 ![postman screenshot](https://github.com/IvelinaT/codeChallenge/blob/master/assets/postman.png?raw=true)
 
 _Note: tasks listed in the response will be executed
