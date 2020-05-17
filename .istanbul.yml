@@ -1,0 +1,8 @@
+instrumentation:
+  include-all-sources: true
+check:
+  global:
+    statements: 94
+    lines: 94
+    branches: 67
+    functions: 83
