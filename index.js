@@ -2,7 +2,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const Joi = require('joi')
-const middleware = require('./middlewares/middleware')
+const middleware = require('./src/middlewares/middleware')
 
 const app = express()
 const port = process.env.PORT || 4000
