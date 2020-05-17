@@ -30,7 +30,7 @@ app.post('/', middleware(dataSchema, 'body'), async (req, res) => {
   const orderedTasks = newJob.orderTasks()
   try {
     // export tasks in bash file
-    const file = await newJob.exportTasksInFile(orderedTasks, 'results.sh')
+    const file = await newJob.exportTasks(orderedTasks, 'results.sh')
     res.send(file)
   } catch (err) {
     res.send({ error: err.message })
