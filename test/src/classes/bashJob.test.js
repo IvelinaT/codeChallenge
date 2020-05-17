@@ -5,11 +5,10 @@ const inputData = require('../../fixtures/output.json')
 
 describe('BashJob class', () => {
   describe('executeTasks method', () => {
-
     it('should execute task', async () => {
       const job = new Job()
       const result = job.exportTasks(inputData)
-     
+
       expect(result).to.be.a('string')
       expect(result).to.contain('#!/usr/bin/env bash')
       expect(result).to.contain('echo \'Hello World!\' > /tmp/file1')

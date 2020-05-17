@@ -4,7 +4,7 @@
 const Job = require('./job')
 
 module.exports = class BashJob extends Job {
-  exportTasks(tasks) {
+  exportTasks (tasks) {
     const result = tasks.map((orderedTask) => orderedTask.command)
     // other option is to save commands in a bash file and return it's full path so it could be executed
     // result.unshift('#!/usr/bin/env bash\n')
