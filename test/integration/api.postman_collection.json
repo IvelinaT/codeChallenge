@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "4e0f11a4-1964-499c-9f1f-82ed3bdf9e8b",
+		"name": "SumUpCodeChallenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:4000/tasks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5ea1300-884a-4ee0-8972-6e1c5d80002c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"var schema = [",
+							"   {",
+							"    \"name\": \"string\",",
+							"    \"command\": \"string\"",
+							"  }",
+							"];",
+							"",
+							"var data1 = [true, false];",
+							"var data2 = [true, 123];",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"  pm.expect(tv4.validate(data2, schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"tasks\": [\n    {\n      \"name\": \"task-1\",\n      \"command\": \"touch /tmp/file1\"\n    },\n    {\n      \"name\": \"task-3\",\n      \"command\": \"echo 'Hello World!' > /tmp/file1\",\n      \"requires\": [\"task-1\"]\n    },\n    {\n      \"name\": \"task-4\",\n      \"command\": \"rm /tmp/file1\",\n      \"requires\": [\"task-2\", \"task-3\"]\n    },\n    {\n      \"name\": \"task-2\",\n      \"command\": \"cat /tmp/file1\",\n      \"requires\": [\"task-3\"]\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"tasks"
+					]
+				},
+				"description": "post to api"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
