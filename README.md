@@ -32,7 +32,7 @@ npm test
 npm run test:coverage
 ```
 
-### Run the Postman API test suite
+### Run the Postman API test suite only
 
 ```
 npm run test:integration
@@ -43,6 +43,7 @@ curl -H "Content-Type: application/json" -d @tasks.json http://localhost:4000 | 
 
 # For array response 
 Can be tested via [Postman](https://www.postman.com/)
+Example request:
 ![postman screenshot](https://github.com/IvelinaT/codeChallenge/blob/master/assets/postman.png?raw=true)
 
 _Note: tasks listed in the response will be executed
